@@ -8,3 +8,11 @@ h1{
     text-align: center;
     background-color: black;
 }
+
+.quote{
+    font-size: 50px;
+    padding: 20px;
+    margin: 20px;
+    border-top: black 1px solid;
+    border-bottom: black 1px solid;
+}
