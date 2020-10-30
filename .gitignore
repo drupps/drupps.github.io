@@ -1,0 +1,9 @@
+*.pdf
+Images/
+Resources/
+.DS_Store
+boot*
+.ipynb_checkpoints
+.vscode
+old_index.html
+old_github.io/
