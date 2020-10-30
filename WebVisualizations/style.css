@@ -1,0 +1,19 @@
+container {
+    background-color: antiquewhite;
+}
+
+/* body {
+    background-color:lightgray
+} */
+
+
+body {
+    background-color:#ededed
+}
+
+
+@media only screen and (max-width: 600px) {
+    body {
+      background-color: lightblue;
+    }
+  }
