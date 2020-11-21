@@ -1,139 +1,79 @@
-# Web Design Homework - Web Visualization Dashboard (Latitude)
+# Plot.ly Homework - Belly Button Biodiversity
 
-## Background
+![Bacteria by filterforge.com](Images/bacteria.jpg)
 
-Data is more powerful when we share it with others! Let's take what we've learned about HTML and CSS to create a dashboard showing off the analysis we've done.
+In this assignment, you will build an interactive dashboard to explore the [Belly Button Biodiversity dataset](http://robdunnlab.com/projects/belly-button-biodiversity/), which catalogs the microbes that colonize human navels.
 
-![Images/landingResize.png](Images/landingResize.png)
+The dataset reveals that a small handful of microbial species (also called operational taxonomic units, or OTUs, in the study) were present in more than 70% of people, while the rest were relatively rare.
 
-### Before You Begin
+## Step 1: Plotly
 
-1. Create a new repository for this project called `Web-Design-Challenge`. **Do not add this homework to an existing repository**.
+1. Use the D3 library to read in `samples.json`.
 
-2. Clone the new repository to your computer.
+2. Create a horizontal bar chart with a dropdown menu to display the top 10 OTUs found in that individual.
 
-3. Inside your local git repository, create a directory for the web challenge. Use a folder name to correspond to the challenge: **WebVisualizations**.
+* Use `sample_values` as the values for the bar chart.
 
-4. Add your **html** files to this folder as well as your **assets**, **Resources** and **visualizations** folders.
+* Use `otu_ids` as the labels for the bar chart.
 
-5. Push the above changes to GitHub or GitLab.
+* Use `otu_labels` as the hovertext for the chart.
 
-6. Deploy to GitHub pages. 
+  ![bar Chart](Images/hw01.png)
 
-## Latitude - Latitude Analysis Dashboard with Attitude
+3. Create a bubble chart that displays each sample.
 
-For this homework we'll be creating a visualization dashboard website using visualizations we've created in a past assignment. Specifically, we'll be plotting [weather data](Resources/cities.csv).
+* Use `otu_ids` for the x values.
 
-In building this dashboard, we'll create individual pages for each plot and a means by which we can navigate between them. These pages will contain the visualizations and their corresponding explanations. We'll also have a landing page, a page where we can see a comparison of all of the plots, and another page where we can view the data used to build them.
+* Use `sample_values` for the y values.
 
-### Website Requirements
+* Use `sample_values` for the marker size.
 
-For reference, see the ["Screenshots" section](#screenshots) below.
+* Use `otu_ids` for the marker colors.
 
-The website must consist of 7 pages total, including:
+* Use `otu_labels` for the text values.
 
-* A [landing page](#landing-page) containing:
-  * An explanation of the project.
-  * Links to each visualizations page. There should be a sidebar containing preview images of each plot, and clicking an image should take the user to that visualization.
-* Four [visualization pages](#visualization-pages), each with:
-  * A descriptive title and heading tag.
-  * The plot/visualization itself for the selected comparison.
-  * A paragraph describing the plot and its significance.
-* A ["Comparisons" page](#comparisons-page) that:
-  * Contains all of the visualizations on the same page so we can easily visually compare them.
-  * Uses a Bootstrap grid for the visualizations.
-    * The grid must be two visualizations across on screens medium and larger, and 1 across on extra-small and small screens.
-* A ["Data" page](#data-page) that:
-  * Displays a responsive table containing the data used in the visualizations.
-    * The table must be a bootstrap table component. [Hint](https://getbootstrap.com/docs/4.3/content/tables/#responsive-tables)
-    * The data must come from exporting the `.csv` file as HTML, or converting it to HTML. Try using a tool you already know, pandas. Pandas has a nifty method approprately called `to_html` that allows you to generate a HTML table from a pandas dataframe. See the documentation [here](https://pandas.pydata.org/pandas-docs/version/0.17.0/generated/pandas.DataFrame.to_html.html)
+![Bubble Chart](Images/bubble_chart.png)
 
-The website must, at the top of every page, have a navigation menu that:
+4. Display the sample metadata, i.e., an individual's demographic information.
 
-* Has the name of the site on the left of the nav which allows users to return to the landing page from any page.
-* Contains a dropdown menu on the right of the navbar named "Plots" that provides a link to each individual visualization page.
-* Provides two more text links on the right: "Comparisons," which links to the comparisons page, and "Data," which links to the data page.
-* Is responsive (using media queries). The nav must have similar behavior as the screenshots ["Navigation Menu" section](#navigation-menu) (notice the background color change).
+5. Display each key-value pair from the metadata JSON object somewhere on the page.
 
-Finally, the website must be deployed to GitHub pages.
+![hw](Images/hw03.png)
 
-When finished, submit to BootcampSpot the links to 1) the deployed app and 2) the GitHub repository.
+6. Update all of the plots any time that a new sample is selected.
 
-Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
+Additionally, you are welcome to create any layout that you would like for your dashboard. An example dashboard is shown below:
 
-### Considerations
+![hw](Images/hw02.png)
 
-* You may use the [weather data](Resources/cities.csv) or choose another dataset. Alternatively, you may use the included [cities dataset](Resources/cities.csv) and pull the images from the [assets folder](Resources/assets).
-* You must use Bootstrap. This includes using the Bootstrap `navbar` component for the header on every page, the bootstrap table component for the data page, and the Bootstrap grid for responsiveness on the comparison page.
-* You must deploy your website to GitHub pages, with the website working on a live, publicly accessible URL as a result.
-* Be sure to use a CSS media query for the navigation menu.
-* Be sure your website works at all window widths/sizes.
-* Feel free to take some liberty in the visual aspects, but keep the core functionality the same.
+## Advanced Challenge Assignment (Optional)
 
-### Bonuses
+The following task is advanced and therefore optional.
 
-* Use a different dataset! The requirements above still hold, but make it your own.
-* Use a Bootstrap theme to customize your website. You may use a tool like [Bootswatch](https://bootswatch.com/). Make it look snazzy, give it some attitude. If using this, be sure you also meet all of the requirements listed above.
-* Add extra visualizations! The more comparisons the better, right?
-* Use meaningful glyphicons next to links in the header.
-* Have visualization navigation on every visualizations page with an active state. See the screenshots below.
+* Adapt the Gauge Chart from <https://plot.ly/javascript/gauge-charts/> to plot the weekly washing frequency of the individual.
 
-### Screenshots
+* You will need to modify the example gauge code to account for values ranging from 0 through 9.
 
-This section contains screenshots of each page that must be built, at varying screen widths. These are a guide; you can meet the requirements without having the pages look exactly like the below images.
+* Update the chart whenever a new sample is selected.
 
-#### <a id="landing-page"></a>Landing page
+![Weekly Washing Frequency Gauge](Images/gauge.png)
 
-Large screen:
+## Deployment
 
-![Landing page large screen](Images/landingResize.png)
+* Deploy your app to a free static page hosting service, such as GitHub Pages. Submit the links to your deployment and your GitHub repo.
 
-Small screen:
+* Ensure your repository has regular commits (i.e. 20+ commits) and a thorough README.md file
 
-![Landing page small screen](Images/landing-sm.png)
-￼
+## Hints
 
-#### <a id="comparisons-page"></a>Comparisons page
+* Use `console.log` inside of your JavaScript code to see what your data looks like at each step.
 
-Large screen:
+* Refer to the [Plotly.js documentation](https://plot.ly/javascript/) when building the plots.
 
-![comparison page large screen](Images/comparison-lg.png)
+### About the Data
 
-Small screen:
+Hulcr, J. et al.(2012) _A Jungle in There: Bacteria in Belly Buttons are Highly Diverse, but Predictable_. Retrieved from: [http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/](http://robdunnlab.com/projects/belly-button-biodiversity/results-and-data/)
 
-![comparison page small screen](Images/comparison-sm.png)
+- - -
 
-#### <a id="data-page"></a>Data page
-
-Large screen:
-
-![data page large screen](Images/data-lg.png)
-
-
-Small screen:
-
-![data page small screen](Images/data-sm.png)
-
-#### <a id="visualization-pages"></a>Visualization pages
-
-You'll build four of these, one for each visualization. Here's an example of one:
-
-Large screen:
-
-![visualize page large screen](Images/visualize-lg.png)
-
-Small screen:
-
-![visualize page small screen](Images/visualize-sm.png)
-
-#### <a id="navigation-menu"></a>Navigation menu
-
-Large screen:
-![nav menu large screen](Images/nav-lg.png)
-
-Small screen:
-![nav menu small screen](Images/nav-sm.png)
-
-### Copyright
-
-Trilogy Education Services © 2019. All Rights Reserved.
+© 2019 Trilogy Education Services
